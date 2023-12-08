@@ -3,6 +3,7 @@ import React from 'react'
 import Search from '../../components/home/Search'
 
 const Settings = () => {
+  //test Git
   return (
     <View style={styles.container}>
       <Search title="Settings"  />
