@@ -17,8 +17,8 @@ const Profile = ({navigation}) => {
       <Text style={styles.userName}>Elina Hovakimyan</Text>
       <Text style={styles.email}>hello@gmail.com</Text>
       <View style={styles.list}>
-        <ListItem title="My Orders" subtitle={`Already have ${number} orders`} />
-        <ListItem  onPress={handleSetting} title="Settings" subtitle="Account, FAQ, Contact" />
+        <ListItem height={80} title="My Orders" subtitle={`Already have ${number} orders`} />
+        <ListItem height={80}  onPress={handleSetting} title="Settings" subtitle="Account, FAQ, Contact" />
       </View>
       <View style={{ flex: 1, justifyContent: 'flex-end' }}>
         <Button title="Add a new listing" color={color.red} textColor={color.white} />

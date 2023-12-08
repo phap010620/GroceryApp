@@ -3,7 +3,7 @@ import React from 'react'
 
 const ListItem = ({ title, subtitle, onPress }) => {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.container}>
+        <TouchableOpacity onPress={onPress} style={[styles.container]}>
             <View style={styles.container1}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.subtitle}>{subtitle}</Text>
