@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 //test git
+//test git 2
 
 const HomeStack = () => {
   return (
