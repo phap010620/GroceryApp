@@ -1,0 +1,22 @@
+export const color = {
+    primary: '#4F63AC',
+    secondary: '#FCA34D',
+    white: '#fff',
+    black: '#000',
+    grey: '#8D9BB5',
+    grey2: '#707070',
+    grey3: '#BDBDBD',
+    grey4: '#E0E0E0',
+    grey5: '#F2F2F2',
+    red: '#F44336',
+    green: '#4CAF50',
+    blue: '#2196F3',
+    yellow: '#FFEB3B',
+    orange: '#FF9800',
+    purple: '#9C27B0',
+    pink: '#E91E63',
+    ligtbBrown : '#606060',
+    blurGrey : '#F0F0F0',
+    Indigoblue : " #606060",
+
+};
