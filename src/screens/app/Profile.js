@@ -10,6 +10,9 @@ const Profile = ({navigation}) => {
   const handleSetting = () => {
     navigation.navigate('Settings');
   }
+  const handleAddListing = () => {
+    navigation.navigate('DetailNavigation', {screen: 'newsList'});
+  }
   const number = 10;
   return (
     <View style={styles.container}>
@@ -21,7 +24,7 @@ const Profile = ({navigation}) => {
         <ListItem height={80}  onPress={handleSetting} title="Settings" subtitle="Account, FAQ, Contact" />
       </View>
       <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-        <Button title="Add a new listing" color={color.red} textColor={color.white} />
+        <Button onPress={handleAddListing} title="Add a new listing" color={color.red} textColor={color.white} />
       </View>
     </View>
   )

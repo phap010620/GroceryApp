@@ -2,9 +2,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { color } from '../../untils/Color'
 
-const ListItem3 = ({title}) => {
+const ListItem3 = ({title, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text style={styles.text}>{title}</Text>
       <Image style={styles.img} source={require('../../assets/icons/back3.png')} />
     </TouchableOpacity>

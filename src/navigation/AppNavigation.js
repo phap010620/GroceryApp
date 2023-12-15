@@ -37,7 +37,7 @@ const AppNavigation = () => {
             icon = focused
               ? require('../assets/icons/home_active.png')
               : require('../assets/icons/home.png');
-          } else if (route.name === 'Profile') {
+          } else if (route.name === 'HomeStack') {
             icon = focused
               ? require('../assets/icons/profile_active.png')
               : require('../assets/icons/profile.png');
@@ -58,7 +58,7 @@ const AppNavigation = () => {
       })} >
         <Tab.Screen  name="Home" component={Home} />
         <Tab.Screen name="Favorite" component={Favourite} />
-        <Tab.Screen name="Profile" component={HomeStack} />
+        <Tab.Screen name="HomeStack" component={HomeStack} />
     </Tab.Navigator>
   )
 }

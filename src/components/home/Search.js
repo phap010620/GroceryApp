@@ -32,7 +32,7 @@ const Search = ({ showSearch, showBack, title, showLogout, back, onSearch, keywo
             />
           </TouchableOpacity>
         ) : back ? (
-          <TouchableOpacity >
+          <TouchableOpacity onPress={goBack} >
             <Image
               style={styles.img3}
               source={require('../../assets/icons/back3.png')}
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   img3: {
-    width: 10,
-    height: 22,
+    width: 9,
+    height: 20,
     marginTop: 10,
-    marginLeft: 10,
+    marginEnd: 30,
   },
   container: {
     flexDirection: 'row',

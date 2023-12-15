@@ -2,7 +2,7 @@ import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-nativ
 import React from 'react'
 import { color } from '../untils/Color'
 
-const Button = ({title,onPress}) => {
+const Button = ({title,onPress,style}) => {
     return (
         <View>
             <TouchableOpacity onPress={onPress} style={styles.btn}>

@@ -1,25 +1,44 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking } from 'react-native'
+import React, { useState } from 'react'
 import Search from '../../components/home/Search'
 import ListItem2 from '../../components/ListItem2'
 import ListItem3 from '../../components/home/ListItem3'
+import Button from '../../components/Button'
+
+
 const Settings = () => {
+  const [onPress, setonPress] = useState(false);
+  const [values, setvalues] = useState({name: 'Bruno Pham', email: 'bruno203@gmail.com'});
+const onChangeText = (key,value) => {
+    setvalues({...values, [key]: value});
+  }
+  const onEdit = () => {
+    setonPress(true);
+  }
+  const onSave = () => {
+    setonPress(false);
+  }
+  const onLink = () => {
+    Linking.openURL('https://www.google.com/')
+  }
+  console.log(values);
   return (
     <View style={styles.container}>
-      <Search title="Settings" />
+      <Search back title="Settings" />
       <View style={styles.container1}>
         <Text style={styles.text}>Personal Information</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onEdit}>
           <Image style={styles.img} source={require('../../assets/icons/edit.png')} />
         </TouchableOpacity>
       </View>
-      <ListItem2 title="Name" fullName="Bruno Pham" />
-      <ListItem2 title="Email" fullName="bruno203@gmail.com" />
+      <ListItem2 title="Name" onChangeText={(values) => onChangeText("name", values) } value={values.name} editable={onPress} />
+      <ListItem2 title="Email" onChangeText={(values) => onChangeText("email",values)} value={values.email} editable={onPress} />
+      {onPress ? <Button  title="Save" onPress={onSave} /> : null}
       <Text style={styles.text2}>Help Center</Text>
       <View style={styles.footer}>
-        <ListItem3 title="Terms of Service" />
-        <ListItem3 title="Contact Us" />
-        <ListItem3 title="Privacy & Terms" />
+        <ListItem3 onPress={onLink} title="FAQ" />
+        <ListItem3 onPress={onLink} title="Contact Us" />
+        <ListItem3 onPress={onLink} title="Privacy & Terms" />
       </View>
     </View>
   )

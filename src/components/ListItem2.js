@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 import { color } from '../untils/Color'
 
-const ListItem2 = ({title, fullName }) => {
+
+const ListItem2 = ({title, value, onChangeText, editable }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.fullName}>{fullName}</Text>   
+      <TextInput editable={editable} value={value} onChangeText={onChangeText} style={styles.fullName} />
     </View>
   )
 }
@@ -15,16 +16,17 @@ export default ListItem2
 
 const styles = StyleSheet.create({
     fullName: {
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: "600",
         color: color.primary,
+        marginBottom: 5,
     },
     title: {
         fontSize: 16,
         color: color.gray,
     },
     container: {
-        padding: 16,
+        padding: 15,
         width: 360,
         height: 80,
         backgroundColor: color.white,
