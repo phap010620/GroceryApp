@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import Splash from './src/screens/auth/Splash';
 import SignUp from './src/screens/auth/SignUp';
 import Home from './src/screens/app/Home';
@@ -24,10 +24,10 @@ const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
   return (
-    <NavigationContainer>
+      <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
         <Stack.Screen name="AppNavigation" component={AppNavigation} />
-        <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
         <Stack.Screen name="DetailNavigation" component={DetailNavigation} />
       </Stack.Navigator>
     </NavigationContainer>

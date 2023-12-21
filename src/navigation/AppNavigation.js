@@ -8,18 +8,19 @@ import Profile from '../screens/app/Profile';
 import { color } from '../untils/Color';
 import Settings from '../screens/app/Settings';
 import { createStackNavigator } from '@react-navigation/stack';
+import MyListings from '../screens/app/MyListings';
 
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-//test git
-//test git 2
+
 
 const HomeStack = () => {
   return (
     <Stack.Navigator  screenOptions={{headerShown:false}}>
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="MyListings" component={MyListings} />
     </Stack.Navigator>
   )
 }

@@ -10,6 +10,9 @@ const Profile = ({navigation}) => {
   const handleSetting = () => {
     navigation.navigate('Settings');
   }
+  const handleMyListings = () => {
+    navigation.navigate('MyListings');
+  }
   const handleAddListing = () => {
     navigation.navigate('DetailNavigation', {screen: 'newsList'});
   }
@@ -20,7 +23,7 @@ const Profile = ({navigation}) => {
       <Text style={styles.userName}>Elina Hovakimyan</Text>
       <Text style={styles.email}>hello@gmail.com</Text>
       <View style={styles.list}>
-        <ListItem height={80} title="My Orders" subtitle={`Already have ${number} orders`} />
+        <ListItem height={80} onPress={handleMyListings} title="My Listings" subtitle={`Already have ${number} orders`} />
         <ListItem height={80}  onPress={handleSetting} title="Settings" subtitle="Account, FAQ, Contact" />
       </View>
       <View style={{ flex: 1, justifyContent: 'flex-end' }}>

@@ -1,23 +1,43 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 import Line from '../../components/Line'
 import { color } from '../../untils/Color'
 import Footer from '../../components/Footer'
+import AxiosInstance from '../../helpers/AxiosInstance'
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
+
+
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [token, settoken] = useState("");
+  const handleSignIn = async () => {
+    try {
+      const response = await AxiosInstance().post('user/login', {
+        email,
+        password
+      });
+      console.log(response ,"response");
+      settoken(response.token);
+      console.log("login success");
+      navigation.navigate("AppNavigation" , {screen: "Home"});
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <View style={styles.container}>
       <Title Title="Sign In" />
       <View style={{ marginTop: 70 }}>
-        <TextInput placehoder="example@gmail.com" label="Name" />
+        <TextInput value={email} onChangeText={setemail} placehoder="example@gmail.com" label="Name" />
       </View>
       <View style={{ marginTop: 30 }}>
-        <TextInput placehoder="**********" label="Password" isPassword={true} />
+        <TextInput value={password} onChangeText={setpassword} placehoder="**********" label="Password" isPassword={true} />
       </View>
-      <Button title="Sign In" />
+      <Button onPress={handleSignIn} title="Sign In" />
       <View style={styles.line}>
         <Line />
         <Text style={styles.text}>Or sign in with</Text>

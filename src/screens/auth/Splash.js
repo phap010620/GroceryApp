@@ -7,6 +7,9 @@ const Splash = ({navigation}) => {
     const handleSignIn = () => {
         navigation.navigate('SignIn')
     }
+    const handleSignUp = () => {
+        navigation.navigate('SignUp')
+    }
 
     return (
         <View style={styles.container}>
@@ -16,7 +19,7 @@ const Splash = ({navigation}) => {
             <Text style={styles.text}>You'll Find</Text>
             <Text style={styles.text2}>All you need</Text>
             <Text style={styles.text3}>Here!</Text>
-            <Button title="Sign up" />
+            <Button onPress={handleSignUp} title="Sign up" />
             <TouchableOpacity onPress={handleSignIn} style={styles.footer}>
                 <Text style={styles.text4}>Sign in</Text>
             </TouchableOpacity>
