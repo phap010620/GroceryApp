@@ -13,6 +13,9 @@ const Search = ({ showSearch, showBack, title, showLogout, back, onSearch, keywo
   const onClick = () => {
     setShowInput(!showInput);
   }
+  const handleLogout = () => {
+    navigation.navigate('Splash');
+  }
 
   return (
     <View>
@@ -42,7 +45,7 @@ const Search = ({ showSearch, showBack, title, showLogout, back, onSearch, keywo
         }
         <Text style={styles.text}>{title}</Text>
         {showLogout ? (
-          <TouchableOpacity >
+          <TouchableOpacity onPress={handleLogout} >
             <Image
               style={styles.img4}
               source={require('../../assets/icons/logout.png')}

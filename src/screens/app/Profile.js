@@ -4,9 +4,13 @@ import Search from '../../components/home/Search'
 import { color } from '../../untils/Color'
 import ListItem from '../../components/ListItem'
 import Button from '../../components/Button'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../redux/AuthSlice'
 
 const Profile = ({navigation}) => {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
   const handleSetting = () => {
     navigation.navigate('Settings');
   }
@@ -15,6 +19,10 @@ const Profile = ({navigation}) => {
   }
   const handleAddListing = () => {
     navigation.navigate('DetailNavigation', {screen: 'newsList'});
+  }
+  const handleLogout = () => {
+    dispatch(logout());
+    navigation.navigate('SignIn');
   }
   const number = 10;
   return (

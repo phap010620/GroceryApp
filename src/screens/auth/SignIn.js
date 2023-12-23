@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Alert, StyleSheet, Text, View } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
@@ -7,6 +7,8 @@ import Line from '../../components/Line'
 import { color } from '../../untils/Color'
 import Footer from '../../components/Footer'
 import AxiosInstance from '../../helpers/AxiosInstance'
+import { useDispatch } from 'react-redux'
+import { login } from '../../redux/actions/authAction'
 
 const SignIn = ({navigation}) => {
 
@@ -15,6 +17,7 @@ const SignIn = ({navigation}) => {
   const [password, setpassword] = useState("");
   const [token, settoken] = useState("");
   const handleSignIn = async () => {
+    const user = { email, password };
     try {
       const response = await AxiosInstance().post('user/login', {
         email,
@@ -24,6 +27,7 @@ const SignIn = ({navigation}) => {
       settoken(response.token);
       console.log("login success");
       navigation.navigate("AppNavigation" , {screen: "Home"});
+      dispatch(login(user));
     } catch (error) {
       console.log(error);
     }
